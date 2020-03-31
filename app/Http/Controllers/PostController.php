@@ -17,7 +17,7 @@ class PostController extends Controller
         
         $post = Post::all();
         
-        return view('posts.index',compact('posts'));
+        return view('posts.index',compact('post'));
     }
 
     /**
@@ -54,6 +54,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $post = Post::findOrFail($id);
+
         return view('posts.show', compact('post'));
     }
 
